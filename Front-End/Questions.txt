@@ -1,0 +1,184 @@
+1. Which of the following was NOT a newly added element in HTML5?
+    a. article      b. audio        c. nav          d. frameset
+Ans - d. frameset
+
+
+2. Which element may be used within content to represent material that is tangential?
+    a. aside        b. cite         c. article      d. class
+Ans - a. aside
+
+
+3. In HTML Audio/Video DOM, __________ sets or returns the CORS settings of the audio/video.
+    a. autoplay     b. buffered     c. preload      d. controller
+Ans - c. preload
+
+
+4. What is the use of “defer” attribute?
+    a. It defers rendering of HTML page.
+    b. It defers script execution until the page has been rendered.
+    c. It defers rendering of CSS attributes
+    d. It request for the script asynchronously.
+Ans - b. It defers script execution until the page has been rendered.
+
+
+5. A ___________ is used to define a special state of an element.
+    a. pseudo-tag   b. pseudo-element   c. pseudo-class     d. pseudo-id
+Ans - c. pseudo-class
+
+
+6. Which of the following CSS property can be used to provide the flex-direction and flex-wrap properties?
+    a. flex     b. flex-flow    c. flex-wrap    d. all of the mentioned
+Ans - b. flex-flow
+
+
+7. As a general rule, properties in CSS inherit from ___________ elements
+    a. child to parent      b. parent to child      c. grandparents to parents      d. None of the above
+Ans - b. parent to child
+
+
+8. What kind of scoping does JavaScript use?
+    a. Literal      b. Segmental    c. Lexical      d. Sequential
+Ans - c. Lexical
+
+
+9. Which function among the following lets to register a function to be invoked once?
+    a. setTimeout()     b. setTotalTime()   c. setInterval()    d. setIntervalTime()
+Ans - a. setTimeout()
+
+
+10. Which property is used to obtain browser vendor and version information?
+    a. modal    b. version      c. browser      d. navigator
+Ans - d. navigator
+
+
+11. Consider the two functions below, Will the return the same thing? Why or why not?
+
+    function foo1() 
+    {
+        return {
+            bar : 'hello'
+        };
+    }
+
+    function foo2()
+    {
+        return{
+            bar : 'hello'
+        };
+    }
+
+Ans -  console.log(foo1());
+       console.log(foo2());
+       foo1 returns:
+       Object {bar: "hello"}
+       foo2 returns:
+       undefined 
+       The reason for this has to do with the fact that semicolons are technically optional in JavaScript (although omitting them is generally really bad form). As a result, when the line containing the return statement (with nothing else on the line) is encountered in foo2(), a semicolon is automatically inserted immediately after the return statement.
+
+       No error is thrown since the remainder of the code is perfectly valid, even though it doesn’t ever get invoked or do anything (it is simply an unused code block that defines a property bar which is equal to the string "hello").
+
+       This behavior also argues for following the convention of placing an opening curly brace at the end of a line in JavaScript, rather than on the beginning of a new line. As shown here, this becomes more than just a stylistic preference in JavaScript.
+       
+
+12. What is the output of the following code snippet? Also explain the reason behind the result.
+
+    var number = 0;
+    console.log(number++);
+    console.log(++number);
+    console.log(number);
+
+Ans - The postfix unary operator ++ : 1. Returns the value (this returns 0) 2. Increments the value (number is now 1) 
+      The prefix unary operator ++ : 1. Increments the value (number is now 2) 2. Returns the value (this returns 2) This returns 0 2 2
+
+
+13. Find and explain the output of the following:
+
+    for(let i = 1; i < 5; i++) {
+        if (i == 3) continue;
+        console.log(i);
+    }
+
+Ans - 1 2 4 will be the output as the continue statement terminates execution of the statements in the current iteration of the current or labeled loop, and 
+      continues execution of the loop with the next iteration.
+
+
+14. Find and explain the output of the provided code snippet.
+
+    console.log(typeof typeof 1);
+
+Ans - output will be string as the typeof operator returns a string indicating the type of the unevaluated operand.
+
+15. What is a “closure” in JavaScript? Provide an example.
+
+Ans - let add = function() {
+      let counter = 0;
+      return function () {
+          counter += 1;
+          return counter
+        }
+     })()
+     add();
+     add();
+     add();
+
+     The variable add is assigned to the return value of a self-invoking function.
+     The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression.
+     This way add becomes a function. The "wonderful" part is that it can access the counter in the parent scope.
+     This is called a JavaScript closure. It makes it possible for a function to have "private" variables.
+     The counter is protected by the scope of the anonymous function, and can only be changed using the add function.
+
+16. What is “hoisting” in JavaScript? Write the code transformation after the 1st pass of JavaScript for the following
+    code snippet.
+
+    var result = concat(first_name, last_name);
+    console.log(result);
+
+    function concat(x, y) {
+        return x + y;
+    }
+
+    var first_name = 'John';
+    var last_name = 'Doe'
+
+Ans - Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. So the
+      above code will output NaN
+
+
+17. Differentiate between callback functions and anonymous function. Give an example of both.
+
+Ans - Callback and Anonymous functions are used for passing to other functions like Array.prototype.map() for them to use. It’s a way to pass logic just as you 
+      would pass an object. Consider the example code below;
+
+      var Arr = [2,3,4,5]
+      # Callback function
+      function myCallback(x){
+      return x+1;
+      }
+      console.log(Arr.map(myCallback));
+
+      From the code sample above, our callback function is myCallback() , which simply takes an argument x and returns an increment of the argument x+1. We see that our Array.map() takes as argument our callback function.
+
+      We could also write it as:
+
+      var Arr = [2,3,4,5]
+      # Anonymous function goes directly 
+      console.log(Arr.map(function(x){ return x+1}));
+
+      The code above will also do the job, it uses an anonymous function. I.E, a function without a name function(x){return x+1}. Anonymous functions as the name might imply are functions without names. The function is only refered to once, so a variable name doesn’t need to be wasted on it.
+
+      The difference between anonymous and callback function is that;
+        - Anonymous function doensn’t need to be named, while calback functions are named
+        - Anonymous functions can’t be used anywhere outside the .map() function while callback functions are independent and can be used outside of .map() 
+          function above.
+        - With anonymous functions, it is difficult to identify in call stacks, which makes debugging trickier. While with callback functions, there are identify 
+          in call stacks and easy to debug.
+        - Callback function doesn’t take in an argument when called within another function while anonymous function can take in arguments.
+
+
+18. What is event bubbling and how to stop an event from bubbling?
+
+Ans - Event Bubbling :
+      Event Bubbling is the event starts from the deepest element or target element to its parents, then all its ancestors which are on the way to bottom to top. 
+      At present, all the modern browsers have event bubbling as the default way of event flow.
+      The event. stopPropagation() method stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed. Use of the 
+      event. isPropagationStopped() method to check whether this method was called for the event.
